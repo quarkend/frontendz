@@ -177,12 +177,12 @@ export default function Profile() {
                         setShowUpdateUsername(false);
                       }}
                     ></i>
-                    <i
+                    {/* <i
                       className="fas fa-user-slash white fa-2x"
                       onClick={() => {
                         history.push("/deleteuser/" + id);
                       }}
-                    ></i>
+                    ></i> */}
                   </div>
                   {showUpdatePhoto && (
                     <UpdateProfilePhoto

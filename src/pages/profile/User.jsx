@@ -135,7 +135,7 @@ export default function User({ user }) {
                                 setShowUpdateUsername(false)
                             }}>
                             </i>
-                            <i className="fas fa-user-slash white fa-3x" onClick={() => { history.push("/deleteuser/" + id) }}></i>
+                            {/* <i className="fas fa-user-slash white fa-3x" onClick={() => { history.push("/deleteuser/" + id) }}></i> */}
                         </div>
                     </div>
                     {showUpdatePhoto &&
