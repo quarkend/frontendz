@@ -39,7 +39,7 @@ export const Home = () => {
     dispatch({
       type: "FETCH_POSTS_REQUEST",
     });
-    fetch("http://localhost:4040/api/posts", {
+    fetch("${process.env.REACT_APP_API_URL}/posts", {
       headers: {
         Authorization: `Bearer ${authState.token}`,
       },

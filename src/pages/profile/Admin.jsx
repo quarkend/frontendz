@@ -20,7 +20,7 @@ export default function Admin() {
     // eslint-disable-next-line
     const [data, setData] = useState('')
     async function getUserData() {
-        const URL = `${"http://localhost:4040/api/users/"}/${userId}`
+        const URL = `${"${process.env.REACT_APP_API_URL}/users/"}/${userId}`
         const data = await fetch(URL, {
             headers: {
                 Authorization: 'Bearer ' + token
@@ -48,7 +48,7 @@ export default function Admin() {
         getPostData()
     }, [])
     useEffect(() => {
-        axios.get(`http://localhost:4040/api/users/${id}`,
+        axios.get(`${process.env.REACT_APP_API_URL}/users/${id}`,
             {
                 headers:
                     { "Authorization": token }

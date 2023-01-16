@@ -10,7 +10,7 @@ export default function DeleteUser() {
     let token = "Bearer " + storage.token;
     const handleSubmit = useCallback(function (value) {
         const conf = window.confirm('Etes vous sur de vouloir Supprimer definitivement votre compte ?')
-      if(conf)  fetch(('http://localhost:4040/api/users/' + userId), {
+      if(conf)  fetch(('${process.env.REACT_APP_API_URL}/users/' + userId), {
             method: "delete",
             headers:
             {

@@ -10,8 +10,8 @@ import UpdateProfilePhoto from "./../../pages/profile/UpdateProfilePhoto";
 import { Chat, Cancel } from "@material-ui/icons";
 import MenuDots from "../menuBurger/MenuDots";
 // import Comment from './../comment/Comment';
-const USER_INFO_URL = "http://localhost:4040/api/users/";
-const url = "http://localhost:4040/images/";
+const USER_INFO_URL = "${process.env.REACT_APP_API_URL}/users/";
+const url = "public/images/";
 export default function Post({ post }) {
   const { handleSubmit, register } = useForm();
   const [data, setData] = useState("");
@@ -33,7 +33,7 @@ export default function Post({ post }) {
   const [like, setLike] = useState([]);
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`http://localhost:4040/api/users`, {
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/users`, {
         headers: { Authorization: token },
       });
       setUsers(res.data);
@@ -63,7 +63,7 @@ export default function Post({ post }) {
   };
   useEffect(() => {
     axios
-      .get(`http://localhost:4040/api/posts/byId/${post.id}`, {
+      .get(`${process.env.REACT_APP_API_URL}/posts/byId/${post.id}`, {
         headers: { Authorization: token },
       })
       .then((response) => {
@@ -73,7 +73,7 @@ export default function Post({ post }) {
   console.log(post);
   useEffect(() => {
     axios
-      .get(`http://localhost:4040/api/posts/${post.id}/comments`, {
+      .get(`${process.env.REACT_APP_API_URL}/posts/${post.id}/comments`, {
         headers: { Authorization: token },
       })
       .then((response) => {
@@ -125,7 +125,7 @@ export default function Post({ post }) {
   // if(conf)
   const deletePost = (id) => {
     axios
-      .delete(`http://localhost:4040/api/posts/${id}`, {
+      .delete(`${process.env.REACT_APP_API_URL}/posts/${id}`, {
         headers: { Authorization: token },
       })
 
@@ -142,7 +142,7 @@ export default function Post({ post }) {
     formData.append("image", data.image[0]);
     console.log(data.image[0]);
     const sendPhoto = await fetch(
-      "http://localhost:4040/api/posts/upimg/" + post.id,
+      "${process.env.REACT_APP_API_URL}/posts/upimg/" + post.id,
       {
         method: "PUT",
         headers: {

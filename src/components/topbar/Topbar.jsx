@@ -9,7 +9,7 @@ import { useState,useContext } from "react";
 import { useEffect } from "react";
 
 export default function Topbar(props) {
-  const url = "http://localhost:4040/images/";
+  const url = "public/images/";
   const [error, setError] = useState(null);
   //eslint-disable-next-line
   const [isLoaded, setIsLoaded] = useState(false);
@@ -24,7 +24,7 @@ export default function Topbar(props) {
   let id = useParams();
   // const  isAdmin = storage.isAmin;
   async function getUserData() {
-    const URL = `${"http://localhost:4040/api/users/"}${id}`;
+    const URL = `${"${process.env.REACT_APP_API_URL}/users/"}${id}`;
     const data = await fetch(URL, {
       headers: {
         Authorization: "Bearer " + token,

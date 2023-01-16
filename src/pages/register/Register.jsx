@@ -22,7 +22,7 @@ export default function Register() {
         password: password.current.value,
       };
       try {
-        await axios.post("http://localhost:4040/api/auth/signup", user);
+        await axios.post("${process.env.REACT_APP_API_URL}/auth/signup", user);
         history.push("/login");
       } catch (err) {
         console.log(err);
@@ -118,7 +118,7 @@ export default function Register() {
 //         e.preventDefault();
 //          if(info.password !== info.passwordAgain) setError('Password is not correct')
 //       else setError('')
-//         fetch('http://localhost:4040/api/auth/signup', {
+//         fetch('${process.env.REACT_APP_API_URL}/auth/signup', {
 //             method: 'POST',
 //             headers: {
 //                 'Content-Type': 'application/json'

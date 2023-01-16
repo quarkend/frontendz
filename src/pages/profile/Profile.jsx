@@ -12,7 +12,7 @@ import UpdateProfileEmail from "./UpdateProfileEmail";
 // ^\s*$\n
 
 export default function Profile() {
-  const url = "http://localhost:4040/images/";
+  const url = "public/images/";
   let { id } = useParams();
   let history = useHistory();
   const { state } = React.useContext(AuthContext);
@@ -29,7 +29,7 @@ export default function Profile() {
     const formData = new FormData();
     formData.append("image", data.image[0]);
     const sendPhoto = await fetch(
-      `${"http://localhost:4040/api/profile"}/${storage.id}`,
+      `${"${process.env.REACT_APP_API_URL}/profile"}/${storage.id}`,
       {
         method: "put",
         headers: {
@@ -48,7 +48,7 @@ export default function Profile() {
     console.log(data);
     // const { userId } = storage
     //     const sendedEmail = await fetch(
-    //       "http://localhost:4040/api/profile/" + storage.id,
+    //       "${process.env.REACT_APP_API_URL}/profile/" + storage.id,
     //       {
     //         method: "put",
     //         headers: {
@@ -65,7 +65,7 @@ export default function Profile() {
   }
   async function handleUpdateProfileUsername(data) {
     const sendedUsername = await fetch(
-      `${"http://localhost:4040/api/profile"}/${storage.id}`,
+      `${"${process.env.REACT_APP_API_URL}/profile"}/${storage.id}`,
       {
         method: "put",
         headers: {
@@ -82,7 +82,7 @@ export default function Profile() {
     console.log(response);
   }
   async function getUserData() {
-    const URL = `${"http://localhost:4040/api/profile/"}${userId}`;
+    const URL = `${"${process.env.REACT_APP_API_URL}/profile/"}${userId}`;
     const data = await fetch(URL, {
       headers: {
         Authorization: "Bearer " + token,

@@ -14,7 +14,7 @@ export default function Feed({ username }) {
   useEffect(() => {
     const fetchPosts = async () => {
       axios
-        .get(`http://localhost:4040/api/posts`, {
+        .get(`${process.env.REACT_APP_API_URL}/posts`, {
           headers: { Authorization: "Bearer" + token },
         })
         .then((response) => {

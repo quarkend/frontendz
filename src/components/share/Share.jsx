@@ -6,7 +6,7 @@ import {
 } from "@material-ui/icons";
 import { useRef, useState } from "react";
 import axios from "axios";
-const url = "http://localhost:4040/images/"
+const url = "public/images/"
 export default function Share() {
 
     const storage = JSON.parse(localStorage.getItem('user'))
@@ -34,7 +34,7 @@ export default function Share() {
             } catch (err) { }
         }
         try {
-            await axios.post("http://localhost:4040/api/posts", newPost,
+            await axios.post("${process.env.REACT_APP_API_URL}/posts", newPost,
                 {
                     headers:
                         { "Authorization": token }

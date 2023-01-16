@@ -25,7 +25,7 @@ export const Login = () => {
       errorMessage: null,
     });
     //   process.env.REACT_APP_API_URL}/auth/login
-    fetch(`http://localhost:4040/api/auth/login`, {
+    fetch(`${process.env.REACT_APP_API_URL}/auth/login`, {
       method: "post",
        withCredentials: true, 
       headers: {
@@ -270,7 +270,7 @@ export default Login;
 //         })
        
         
-//         fetch('http://localhost:4040/api/auth/login', {
+//         fetch('${process.env.REACT_APP_API_URL}/auth/login', {
             
              
 //             //  withCredentials: true,
