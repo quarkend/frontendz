@@ -10,7 +10,7 @@ import UpdateProfilePhoto from "./../../pages/profile/UpdateProfilePhoto";
 import { Chat, Cancel } from "@material-ui/icons";
 import MenuDots from "../menuBurger/MenuDots";
 // import Comment from './../comment/Comment';
-const USER_INFO_URL = "${process.env.REACT_APP_API_URL}/users/";
+const USER_INFO_URL = `${process.env.REACT_APP_API_URL}/users/`;
 const url = "public/images/";
 export default function Post({ post }) {
   const { handleSubmit, register } = useForm();
@@ -142,7 +142,7 @@ export default function Post({ post }) {
     formData.append("image", data.image[0]);
     console.log(data.image[0]);
     const sendPhoto = await fetch(
-      "${process.env.REACT_APP_API_URL}/posts/upimg/" + post.id,
+      `${process.env.REACT_APP_API_URL}/posts/upimg/` + post.id,
       {
         method: "PUT",
         headers: {

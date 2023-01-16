@@ -43,7 +43,7 @@ export default function User({ user }) {
         setShowUpdatePhoto(false)
     }
     async function handleUpdateProfileUsername(data) {
-        const sendedUsername = await fetch("${process.env.REACT_APP_API_URL}/users/" + user.id, {
+        const sendedUsername = await fetch(`${process.env.REACT_APP_API_URL}/users/` + user.id, {
             method: 'put',
             headers: {
                 "Content-Type": "application/json",
@@ -57,7 +57,7 @@ export default function User({ user }) {
         setShowUpdateUsername(false)
     }
     async function handleUpdateProfileEmail(data) {
-        const sendedEmail = await fetch("${process.env.REACT_APP_API_URL}/users/" + user.id, {
+        const sendedEmail = await fetch(`${process.env.REACT_APP_API_URL}/users/` + user.id, {
             method: 'put',
             headers: {
                 "Content-Type": "application/json",
@@ -72,7 +72,7 @@ export default function User({ user }) {
         setShowUpdateEmail(false)
     }
     async function getUserData() {
-        const URL = `${"${process.env.REACT_APP_API_URL}/users/"}/${userId}`
+        const URL = `${`${process.env.REACT_APP_API_URL}/users/`}/${userId}`
         const data = await fetch(URL, {
             headers: {
                 Authorization: 'Bearer ' + token

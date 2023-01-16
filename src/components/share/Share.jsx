@@ -34,7 +34,7 @@ export default function Share() {
             } catch (err) { }
         }
         try {
-            await axios.post("${process.env.REACT_APP_API_URL}/posts", newPost,
+            await axios.post(`${process.env.REACT_APP_API_URL}/posts`, newPost,
                 {
                     headers:
                         { "Authorization": token }

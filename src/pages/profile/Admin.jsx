@@ -20,7 +20,7 @@ export default function Admin() {
     // eslint-disable-next-line
     const [data, setData] = useState('')
     async function getUserData() {
-        const URL = `${"${process.env.REACT_APP_API_URL}/users/"}/${userId}`
+        const URL = `${`${process.env.REACT_APP_API_URL}/users/`}/${userId}`
         const data = await fetch(URL, {
             headers: {
                 Authorization: 'Bearer ' + token

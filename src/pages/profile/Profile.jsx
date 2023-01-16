@@ -29,7 +29,7 @@ export default function Profile() {
     const formData = new FormData();
     formData.append("image", data.image[0]);
     const sendPhoto = await fetch(
-      `${"${process.env.REACT_APP_API_URL}/profile"}/${storage.id}`,
+      `${`${process.env.REACT_APP_API_URL}/profile`}/${storage.id}`,
       {
         method: "put",
         headers: {
@@ -48,7 +48,7 @@ export default function Profile() {
     console.log(data);
     // const { userId } = storage
     //     const sendedEmail = await fetch(
-    //       "${process.env.REACT_APP_API_URL}/profile/" + storage.id,
+    //       `${process.env.REACT_APP_API_URL}/profile/` + storage.id,
     //       {
     //         method: "put",
     //         headers: {
@@ -65,7 +65,7 @@ export default function Profile() {
   }
   async function handleUpdateProfileUsername(data) {
     const sendedUsername = await fetch(
-      `${"${process.env.REACT_APP_API_URL}/profile"}/${storage.id}`,
+      `${`${process.env.REACT_APP_API_URL}/profile`}/${storage.id}`,
       {
         method: "put",
         headers: {
@@ -82,7 +82,7 @@ export default function Profile() {
     console.log(response);
   }
   async function getUserData() {
-    const URL = `${"${process.env.REACT_APP_API_URL}/profile/"}${userId}`;
+    const URL = `${`${process.env.REACT_APP_API_URL}/profile/`}${userId}`;
     const data = await fetch(URL, {
       headers: {
         Authorization: "Bearer " + token,
